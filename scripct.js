@@ -2,12 +2,15 @@
 
 let secreteNumber = Math.trunc(Math.random() * 20) + 1;
 
-console.log(secreteNumber, typeof secreteNumber);
+console.log(secreteNumber, typeof secreteNumber +"main");
 
 
 // score
 let score = 20;
 document.querySelector("#score").textContent = score;
+// high score
+let highscore=0
+
 
 // ********************************* click event
 document.querySelector("#check").addEventListener("click", function () {
@@ -16,6 +19,13 @@ document.querySelector("#check").addEventListener("click", function () {
   if (secreteNumber === guess) {
     document.getElementById("message").textContent = "Correct Number🥳🥳";
     document.querySelector(".main_number").textContent = secreteNumber;
+   
+   if(score>highscore)
+   {
+    highscore=score
+     document.querySelector("#highscore").textContent=highscore
+
+   }
 
   } 
   
@@ -57,6 +67,8 @@ document.querySelector("#again").addEventListener("click",function(){
   score=20
   document.querySelector("#score").textContent = 20;
    secreteNumber = Math.trunc(Math.random() * 20) + 1;
+   console.log("again" + secreteNumber );
+   
    document.querySelector(".main_number").textContent = "?";
    document.getElementById("input").value=''
 });
